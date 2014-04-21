@@ -7,8 +7,9 @@ A CSS framework for Japanese-styled grid sheet.
 
 Excel方眼紙業務のWeb移行においては、Bootstrapのような12カラムグリッドスタイルでは、
 グリッドが足りません。
-
 そこでExcel方眼紙と同じようにレイアウティングできるCSSフレームワークがjagridです。
+
+![sales-report](https://farm8.staticflickr.com/7215/13942407502_b513163fcf.jpg)
 
 ## 使い方
 
@@ -35,6 +36,8 @@ jagridのスタイルシートとJavascriptファイルをを読みこんでく�
 シートの中では、絶対位置を`data-x`および`data-y`属性を使って指定できます。
 ここでは、ピクセル単位ではなく、方眼紙のマス目単位であることに喜びを感じてください。
 
+![hello](https://farm8.staticflickr.com/7207/13965476593_0f84a05a00.jpg)
+
 ```html
 <div class="jagrid" style="width: 400px; height: 150px;">
  <div data-x="1" data-y="1">
@@ -46,6 +49,8 @@ jagridのスタイルシートとJavascriptファイルをを読みこんでく�
 ### 表組み
 
 シートの中に、まるでExcel方眼紙のように柔軟に表組みを書くことができます。
+
+![table](https://farm3.staticflickr.com/2902/13942308062_ebc5aa18ef.jpg)
 
 ```html
 <div class="jagrid" style="width: 400px; height: 150px;">
@@ -71,6 +76,8 @@ jagridのスタイルシートとJavascriptファイルをを読みこんでく�
 ### リスト
 
 マス目インデントを使った、箇条書きもHTMLのリストでふつうに表現できます。
+
+![list](https://farm8.staticflickr.com/7025/13965476453_a30eddce47.jpg)
 
 ```html
 <div class="jagrid" style="width: 400px; height: 150px;">
