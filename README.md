@@ -20,6 +20,12 @@ Excel方眼紙業務のWeb移行においては、Bootstrapのような12カラ�
 
 jagridのスタイルシートとJavascriptファイルをを読みこんでください。
 
+## 動作環境
+
+* Chrome
+* Firefox
+* IE9+
+
 ## Overview
 
 ### シートの作り方
@@ -71,7 +77,7 @@ jagridのスタイルシートとJavascriptファイルをを読みこんでく�
 </div>
 ```
 
-列幅はこれもマス目の単位であるため、data-width属性を使って指定します。
+列幅はこれもマス目の単位であるため、data-width属性を使って指定します。rowspan属性はふつうのtdダグと同じように使用できます。
 
 ### リスト
 
