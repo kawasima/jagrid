@@ -9,7 +9,7 @@
 
 .jagrid .jg-header {
   box-shadow: none;
-  background-color: #dfe3e8;
+  background-color: #d4d0c7;
 }
 
 .jagrid .jg-header.row {
@@ -21,7 +21,7 @@
 .jagrid .jg-header td, .jagrid .jg-header th {
   box-shadow: inset #b1b5ba -1px -1px 0;
   font-size: 90%;
-  color: #3e3e36;
+  color: #000;
   text-align: center;
 }
 

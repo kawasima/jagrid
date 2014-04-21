@@ -69,10 +69,10 @@ var jagrid = (function () {
     function rowHeader(sheet) {
         var headerTable = document.createElement("table");
         headerTable.setAttribute("class", "jg-header row");
-        for (var i = 1; i <= 256; i++) {
+        for (var i = 0; i <= 256; i++) {
             var headerRow = document.createElement("tr");
             var cell = document.createElement("td");
-            cell.textContent = i;
+            cell.textContent = i>0 ? i : "◢";
             headerRow.appendChild(cell);
             (headerTable.querySelector("tbody") || headerTable).appendChild(headerRow);
         }

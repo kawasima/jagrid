@@ -46,7 +46,7 @@
     [:article
       [:h2 "表"]
       (view-table)
-      
+
       [:h3 "Source code"]
       [:pre
         [:code (h (pretty-print (html (view-table))))]]]
@@ -57,4 +57,4 @@
 
       [:h3 "Source code"]
       [:pre
-        [:code (h (pretty-print (html (view-list)))) ]]]))
+        [:code (h (pretty-print (html (view-list))))]]]))

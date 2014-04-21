@@ -6,8 +6,9 @@
 
 (def cell-size (or (env :cell-size) 20))
 
-(defstylesheet screen
-  {:output-to "css/jagrid.css"}
+(defn base-css [& {:keys [header-bgcolor header-textcolor]
+                   :or {header-bgcolor "#dfe3e8"
+                        header-textcolor "#3e3e36"}}]
   [:.jagrid
    {:border-width (px 0)
     :line-height (px cell-size)
@@ -16,14 +17,15 @@
     :padding-left (px cell-size)
     :overflow "hidden"}
     [:.jg-header
-      {:background-color "#dfe3e8"
+      {:background-color header-bgcolor
        :box-shadow "none"}
       [:&.row
         {:position "absolute"
+         :margin-top  (px (- cell-size))
          :margin-left (px (- cell-size))}]
       [:td :th
         {:text-align "center"
-         :color "#3e3e36"
+         :color header-textcolor
          :font-size "90%"
          :box-shadow "inset #b1b5ba -1px -1px 0"}]]
     [:*
@@ -51,6 +53,20 @@
            :overflow "hidden"
            :white-space "nowrap"
            :box-shadow "inset #000 -1px -1px 0"}]]]])
+
+(defstylesheet screen
+  {:output-to "css/jagrid.css"}
+  (base-css))
+
+(defstylesheet theme-lotus123
+  {:output-to "css/jagrid-lotus123.css"}
+  (base-css :header-bgcolor "#ebe9ed"
+            :header-textcolor "#000"))
+
+(defstylesheet theme-excel2000
+  {:output-to "css/jagrid-excel2000.css"}
+  (base-css :header-bgcolor "#d4d0c7"
+            :header-textcolor "#000"))
 
 (defn -main []
   (build-examples))
