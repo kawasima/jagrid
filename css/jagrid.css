@@ -1,77 +1,64 @@
 .jagrid {
-    border-width: 0px;
-    line-height: 20px;
-    position: relative;
-    border-style: solid;
-    padding-left: 20px;
-    overflow: hidden;
+  overflow: hidden;
+  padding-left: 20px;
+  border-style: solid;
+  position: relative;
+  line-height: 20px;
+  border-width: 0px;
 }
 
 .jagrid .jg-header {
-    background-color: #DFE3E8;
-    box-shadow: none;
+  background-color: #dfe3e8;
+  box-shadow: none;
 }
-.jagrid .jg-header.column {
-}
+
 .jagrid .jg-header.row {
-    position: absolute;
-    margin-left: -20px;
+  margin-left: -20px;
+  position: absolute;
 }
-.jagrid .jg-header td {
-    text-align: center;
-    color: #3e3e36;
-    font-size: 90%;
-    box-shadow: inset #b1b5ba -1px -1px 0;
+
+.jagrid .jg-header td, .jagrid .jg-header th {
+  text-align: center;
+  font-size: 90%;
+  box-shadow: inset #b1b5ba -1px -1px 0;
+  color: #3e3e36;
 }
+
 .jagrid * {
-    margin: 0;
-    padding: 0;
+  padding: 0;
+  margin: 0;
 }
+
 .jagrid ul, .jagrid ol {
-    padding-left:20px;
+  padding-left: 20px;
 }
+
 .jagrid table {
-    box-shadow: #000 -1px -1px 0px;
-    z-index: 10;
-    border-collapse: collapse;
+  box-shadow: #000 -1px -1px 0px;
+  border-collapse: collapse;
 }
+
 .jagrid table:not(.jg-header) {
-    height: 100%;
+  height: 100%;
 }
+
 .jagrid table tr:first-child td {
-    height:0px;
-    border: 0px;
+  height: 0;
+  border: 0;
 }
-.jagrid td {
-    width: 20px;
-    max-width: 20px;
-    min-width: 20px;
-    line-height: 20px;
-    box-shadow: inset #000 -1px -1px 0;
+
+.jagrid table td, .jagrid table th {
+  box-shadow: inset #000 -1px -1px 0;
+  line-heignt: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  width: 20px;
 }
-.jagrid td > div {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    box-shadow: inset #000 -1px -1px 0;
-}
-.vertical {
-    -webkit-writing-mode: vertical-rl;
-    writing-mode: vertical-rl;
-    -webkit-text-orientation:upright;
-    height: 100%;
-}
-.title {
-    background-position: 3px 3px;
-    background-color: lightgreen;
-}
-.title-all {
-    background-color: darkgreen;
-    color: #fff;
-    text-align: center;
-}
-#container {
-    position:absolute;
-    margin-left: 20px;
+
+.jagrid table td > div, .jagrid table th > div {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset #000 -1px -1px 0;
+  width: 100%;
 }

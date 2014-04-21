@@ -1,3 +1,6 @@
+body {
+    padding-top: 50px;
+}
 .vertical {
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;

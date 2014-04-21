@@ -85,7 +85,7 @@ var jagrid = (function () {
         var rowspans = [];
         forEach.call(tbl.querySelectorAll("tr"), function (row) {
             var rowWidth = 0;
-            forEach.call(row.querySelectorAll("td"), function (cell) {
+            forEach.call(row.querySelectorAll("td,th"), function (cell) {
                 rowspans.push(cell.getAttribute("rowspan") || 1);
                 rowWidth += parseInt(cell.getAttribute("data-width") || 0);
             });
@@ -96,7 +96,7 @@ var jagrid = (function () {
         var rowspanAry = new Array(tableWidth);
         forEach.call(tbl.querySelectorAll("tr"), function (row) {
             var columnIndex = 0;
-            forEach.call(row.querySelectorAll("td"), function (cell) {
+            forEach.call(row.querySelectorAll("td,th"), function (cell) {
                 while (rowspanAry[columnIndex] > 1 && columnIndex < tableWidth) {
                     rowspanAry[columnIndex++]--;
                 }
@@ -139,9 +139,9 @@ var jagrid = (function () {
                 child.style.marginTop = (CELL_SIZE * y) + "px";
             }
         });
+      rowHeader(sheet);
+      columnHeader(sheet);
         forEach.call(sheet.querySelectorAll("table:not(.jg-header)"), function (table) {
-            rowHeader(sheet);
-            columnHeader(sheet);
             toGridTable(table);
         });
         forEach.call(["margin-left", "margin-top", "margin-bottom"],
@@ -160,15 +160,15 @@ var jagrid = (function () {
     exports.render = function (dom) {
         if (dom) _render(dom);
         else forEach.call(document.querySelectorAll(".jagrid"), _render);
-    }
+    };
 
     return exports;
 })();
 
 if(document.addEventListener) {
   document.addEventListener('DOMContentLoaded',
-                            function(e) { jagrid.render(); }, false)
+                            function(e) { jagrid.render(); }, false);
 } else if (window.addEventListener) {
   window.addEventListener('load',
-                          function(e) { jagrid.render(); }, false)
+                          function(e) { jagrid.render(); }, false);
 }
