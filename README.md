@@ -111,3 +111,8 @@ jagridのスタイルシートとJavascriptファイルをを読みこんでく�
 ```
 
 で、cssの下に`jagrid.css`が生成されます。
+
+## ライセンス
+
+Source Copyright © 2014 kawasima.
+Distributed under the Eclipse Public License, the same as Clojure uses.
