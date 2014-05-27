@@ -18,7 +18,7 @@ Excel方眼紙業務のWeb移行においては、Bootstrapのような12カラ�
 <script src="js/jagrid.js"></script>
 ```
 
-jagridのスタイルシートとJavascriptファイルをを読みこんでください。
+jagridのスタイルシートとJavascriptファイルを読みこんでください。
 
 ## 動作環境
 
