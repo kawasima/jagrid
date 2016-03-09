@@ -114,5 +114,5 @@ jagridのスタイルシートとJavascriptファイルを読みこんでくだ�
 
 ## ライセンス
 
-Source Copyright © 2014 kawasima.
+Source Copyright © 2014-2016 kawasima.
 Distributed under the Eclipse Public License, the same as Clojure uses.
