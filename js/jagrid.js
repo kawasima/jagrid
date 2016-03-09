@@ -139,22 +139,27 @@ var jagrid = (function () {
                 child.style.marginTop = (CELL_SIZE * y) + "px";
             }
         });
-      rowHeader(sheet);
-      columnHeader(sheet);
+        rowHeader(sheet);
+        columnHeader(sheet);
         forEach.call(sheet.querySelectorAll("table:not(.jg-header)"), function (table) {
             toGridTable(table);
         });
+        forEach.call(sheet.querySelectorAll("[data-width]"), function (el) {
+            var w = parseInt(el.getAttribute("data-width"));
+            el.style.width = (CELL_SIZE * w) + "px";
+            el.removeAttribute("data-width");
+        });
         forEach.call(["margin-left", "margin-top", "margin-bottom"],
 
-        function (marginPosition) {
-            forEach.call(sheet.querySelectorAll("*[data-" + marginPosition + "]"),
-
-            function (el) {
-                var margin = parseInt(el.getAttribute("data-" + marginPosition) || 0);
-                var current = parseInt((getComputedStyle(el))[marginPosition].replace(/px$/, ''));
-                el.style[camelize(marginPosition)] = ((CELL_SIZE * margin) + current) + "px";
-            });
-        });
+                     function (marginPosition) {
+                         forEach.call(sheet.querySelectorAll("*[data-" + marginPosition + "]"),
+                                      
+                                      function (el) {
+                                          var margin = parseInt(el.getAttribute("data-" + marginPosition) || 0);
+                                          var current = parseInt((getComputedStyle(el))[marginPosition].replace(/px$/, ''));
+                                          el.style[camelize(marginPosition)] = ((CELL_SIZE * margin) + current) + "px";
+                                      });
+                     });
     }
 
     exports.render = function (dom) {

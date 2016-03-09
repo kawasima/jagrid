@@ -1,37 +1,53 @@
 .jagrid {
-  overflow: hidden;
-  padding-left: 20px;
-  border-style: solid;
-  position: relative;
-  line-height: 20px;
   border-width: 0px;
+  line-height: 20px;
+  position: relative;
+  border-style: solid;
+  padding-left: 20px;
+  overflow: hidden;
 }
 
 .jagrid .jg-header {
-  box-shadow: none;
   background-color: #ebe9ed;
+  box-shadow: none;
 }
 
 .jagrid .jg-header.row {
-  margin-left: -20px;
-  margin-top: -20px;
   position: absolute;
+  margin-top: -20px;
+  margin-left: -20px;
 }
 
 .jagrid .jg-header td, .jagrid .jg-header th {
-  box-shadow: inset #b1b5ba -1px -1px 0;
-  font-size: 90%;
-  color: #000;
   text-align: center;
+  color: #000;
+  font-size: 90%;
+  box-shadow: inset #b1b5ba -1px -1px 0;
 }
 
 .jagrid * {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .jagrid ul, .jagrid ol {
   padding-left: 20px;
+}
+
+.jagrid button {
+  color: #444;
+  background-color: #f0f0f0;
+}
+
+.jagrid button.primary {
+  color: #fff;
+  background-color: #2b5797;
+}
+
+.jagrid input {
+  border-size: 0;
+  width: 100%;
+  height: 19px;
 }
 
 .jagrid table {
@@ -49,17 +65,17 @@
 }
 
 .jagrid table td, .jagrid table th {
-  box-shadow: inset #000 -1px -1px 0;
-  line-heignt: 20px;
-  min-width: 20px;
-  max-width: 20px;
   width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  line-heignt: 20px;
+  box-shadow: inset #000 -1px -1px 0;
 }
 
 .jagrid table td > div, .jagrid table th > div {
   height: 100%;
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
   box-shadow: inset #000 -1px -1px 0;
-  width: 100%;
 }
