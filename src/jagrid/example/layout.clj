@@ -1,35 +1,36 @@
 (ns jagrid.example.layout
-  (:use [hiccup core page element]))
+  (:require [hiccup.page :refer [html5 include-css include-js]]
+            [hiccup.element :refer [javascript-tag]]))
 
 (defn view-layout [options & content]
   (html5
    [:head
     [:meta {:charset "utf-8"}]
+    [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
     [:title (:title options)]
     (include-css
-     "http://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.1.1-1/css/simplex/bootstrap.min.css"
-     "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/styles/github.min.css"
+     "https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/simplex/bootstrap.min.css"
+     "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
      "example.css")
     [:link#jagrid-css {:href "../css/jagrid.css" :rel "stylesheet" :type "text/css"}]
     (include-js
-     "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"
+     "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
      "../js/jagrid.js")]
    [:body
-    [:div.navbar.navbar-default.navbar-fixed-top
+    [:nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
      [:div.container
-      [:div.navbar-header
-       [:a.navbar-brand {:href "index.html"} "jagrid"]]]]
-    [:div.container
-     [:div.form-group
-      [:label "Theme"]
-      [:select#theme.form-control {:name "theme"}
-      [:option {:value ""} "Default (Excel 2010)"]
-      [:option {:value "excel2000"} "Excel 2000"]
-      [:option {:value "lotus123"} "Lotus 1-2-3"]]]
-     
+      [:a.navbar-brand {:href "index.html"} "jagrid"]]]
+    [:div.container {:style "padding-top: 70px;"}
+     [:div.mb-3
+      [:label.form-label "Theme"]
+      [:select#theme.form-select {:name "theme"}
+       [:option {:value ""} "Default (Excel 2010)"]
+       [:option {:value "excel2000"} "Excel 2000"]
+       [:option {:value "lotus123"} "Lotus 1-2-3"]]]
+
      content]
     (javascript-tag "
-hljs.initHighlightingOnLoad();
+hljs.highlightAll();
 document.getElementById('theme').addEventListener('change', function(e) {
   var filename = (e.target.value != '') ? '-' + e.target.value : '';
   document.getElementById('jagrid-css')

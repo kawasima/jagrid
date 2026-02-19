@@ -1,7 +1,7 @@
 (ns jagrid.css.core
   (:require [garden.def :refer [defstylesheet defstyles]]
-            [garden.units :refer [px]])
-  (:use [environ.core]))
+            [garden.units :refer [px]]
+            [environ.core :refer [env]]))
 
 (def cell-size (or (env :cell-size) 20))
 
@@ -23,7 +23,7 @@
    [:.jg-header
     {:background-color header-bgcolor
      :box-shadow "none"}
-    [:&.row
+    [:&.jg-row
      {:position "absolute"
       :margin-top  (px (- cell-size))
       :margin-left (px (- cell-size))}]
@@ -34,8 +34,9 @@
       :box-shadow "inset #b1b5ba -1px -1px 0"}]]
    [:*
     {:margin 0
-     :padding 0}]
-   
+     :padding 0
+     :box-sizing "content-box"}]
+
    [:ul :ol
     {:padding-left (px cell-size)}]
 
@@ -50,17 +51,21 @@
      :height (px (- cell-size 1))}]
    [:table
     {:box-shadow "#000 -1px -1px 0px"
-     :border-collapse "collapse"}
-    ["&:not(.jg-header)"
-     {:height "100%"}]
+     :border-collapse "collapse"
+     :border-color "inherit"
+     :border-spacing 0}
     [:tr
+     {:line-height (px cell-size)}
      ["&:first-child"
       [:td {:height 0 :border 0}]]]
     [:td :th
      {:width (px cell-size)
       :max-width (px cell-size)
       :min-width (px cell-size)
-      :line-heignt (px cell-size)
+      :height (px cell-size)
+      :line-height (px cell-size)
+      :padding 0
+      :vertical-align "top"
       :box-shadow  "inset #000 -1px -1px 0"}
      ["> div"
       {:height "100%"

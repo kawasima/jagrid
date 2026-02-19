@@ -2,7 +2,7 @@
   (:require [compojure.core :as compojure]
             [com.stuartsierra.component :as component]
             [meta-merge.core :refer [meta-merge]]
-            [ring.component.jetty :refer [jetty-server]]
+            [ring.adapter.jetty :as jetty]
             [ring.middleware.defaults :refer [wrap-defaults]]
             [jagrid.example.core :refer [example-routes]]))
 
@@ -36,6 +36,7 @@
   (->> (reverse middleware)
        (map #(middleware-fn component %))
               (apply comp identity)))
+
 (defrecord Handler [middleware]
   component/Lifecycle
   (start [component]
@@ -50,6 +51,22 @@
 
 (defn handler-component [options]
   (map->Handler options))
+
+(defrecord JettyServer [options app server]
+  component/Lifecycle
+  (start [component]
+    (if (:server component)
+      component
+      (let [handler (get-in component [:app :handler])
+            server  (jetty/run-jetty handler (assoc options :join? false))]
+        (assoc component :server server))))
+  (stop [component]
+    (when-let [server (:server component)]
+      (.stop server))
+    (assoc component :server nil)))
+
+(defn jetty-server [options]
+  (map->JettyServer {:options options}))
 
 (def base-config
   {:app {:middleware [[wrap-defaults :defaults]]}})

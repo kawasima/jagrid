@@ -68,7 +68,7 @@ var jagrid = (function () {
 
     function rowHeader(sheet) {
         var headerTable = document.createElement("table");
-        headerTable.setAttribute("class", "jg-header row");
+        headerTable.setAttribute("class", "jg-header jg-row");
         for (var i = 0; i <= 256; i++) {
             var headerRow = document.createElement("tr");
             var cell = document.createElement("td");

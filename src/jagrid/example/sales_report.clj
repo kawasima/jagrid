@@ -1,6 +1,7 @@
 (ns jagrid.example.sales-report
-  (:use [hiccup.core]
-        [jagrid.example layout util]))
+  (:require [hiccup.core :refer [html h]]
+            [jagrid.example.layout :refer [view-layout]]
+            [jagrid.example.util :refer [pretty-print]]))
 
 (defn- view-report []
   [:div.jagrid {:style "width: 640px; height: 480px;"}

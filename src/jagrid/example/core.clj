@@ -1,5 +1,5 @@
 (ns jagrid.example.core
-  (:require [compojure.core :refer :all]
+  (:require [compojure.core :refer [defroutes GET]]
             [ring.util.response :refer [file-response content-type]]
             [jagrid.css.core :as css]
             [jagrid.example.index :as index]

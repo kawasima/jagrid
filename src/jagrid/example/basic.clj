@@ -1,6 +1,7 @@
 (ns jagrid.example.basic
-  (:use [hiccup.core]
-        [jagrid.example layout util]))
+  (:require [hiccup.core :refer [html h]]
+            [jagrid.example.layout :refer [view-layout]]
+            [jagrid.example.util :refer [pretty-print]]))
 
 (defn- view-hello []
   [:div.jagrid {:style "width: 400px; height: 150px;"}

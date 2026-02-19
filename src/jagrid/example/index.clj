@@ -1,6 +1,5 @@
 (ns jagrid.example.index
-  (:use [hiccup.core]
-        [jagrid.example.layout]))
+  (:require [jagrid.example.layout :refer [view-layout]]))
 
 (defn view []
   (view-layout {:title "index"}

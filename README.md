@@ -1,5 +1,4 @@
-jagrid
-=======
+# jagrid
 
 A CSS framework for Japanese-styled grid sheet.
 
@@ -24,7 +23,7 @@ jagridのスタイルシートとJavascriptファイルを読みこんでくだ�
 
 * Chrome
 * Firefox
-* IE9+
+* Edge
 
 ## Overview
 
@@ -107,12 +106,20 @@ jagridのスタイルシートとJavascriptファイルを読みこんでくだ�
 ## ビルドの仕方
 
 ```
-% lein run
+% clj -M:run
 ```
 
 で、cssの下に`jagrid.css`が生成されます。
 
+## 開発モード
+
+```
+% clj -M:dev
+```
+
+REPLが起動します。`(go)` でサーバーを起動、`(reset)` でリロードします。
+
 ## ライセンス
 
-Source Copyright © 2014-2016 kawasima.
+Source Copyright © 2014-2026 kawasima.
 Distributed under the Eclipse Public License, the same as Clojure uses.
