@@ -26,6 +26,7 @@
       [:select#theme.form-select {:name "theme"}
        [:option {:value ""} "Default (Excel 2010)"]
        [:option {:value "excel2000"} "Excel 2000"]
+       [:option {:value "office365"} "Office 365"]
        [:option {:value "lotus123"} "Lotus 1-2-3"]]]
 
      content]

@@ -153,13 +153,68 @@ var jagrid = (function () {
 
                      function (marginPosition) {
                          forEach.call(sheet.querySelectorAll("*[data-" + marginPosition + "]"),
-                                      
+
                                       function (el) {
                                           var margin = parseInt(el.getAttribute("data-" + marginPosition) || 0);
                                           var current = parseInt((getComputedStyle(el))[marginPosition].replace(/px$/, ''));
                                           el.style[camelize(marginPosition)] = ((CELL_SIZE * margin) + current) + "px";
                                       });
                      });
+        setupCellSelection(sheet);
+    }
+
+    function setupCellSelection(sheet) {
+        var cursor = document.createElement("div");
+        cursor.className = "jg-cell-cursor";
+        cursor.style.display = "none";
+        cursor.style.width = CELL_SIZE + "px";
+        cursor.style.height = CELL_SIZE + "px";
+        sheet.appendChild(cursor);
+
+        sheet.addEventListener("click", function (e) {
+            var rect = sheet.getBoundingClientRect();
+            var scrollLeft = sheet.scrollLeft;
+            var scrollTop = sheet.scrollTop;
+            var x = e.clientX - rect.left + scrollLeft;
+            var y = e.clientY - rect.top + scrollTop;
+
+            var col = Math.floor(x / CELL_SIZE);
+            var row = Math.floor(y / CELL_SIZE);
+
+            // Column 0 is the row header area, row 0 is the column header area
+            if (col < 1 || row < 1) return;
+
+            cursor.style.display = "block";
+            cursor.style.left = (col * CELL_SIZE) + "px";
+            cursor.style.top = (row * CELL_SIZE) + "px";
+
+            // Highlight column header
+            var colHeader = sheet.querySelector("table.jg-header.column");
+            if (colHeader) {
+                forEach.call(colHeader.querySelectorAll("td.jg-active, th.jg-active"), function (el) {
+                    el.classList.remove("jg-active");
+                });
+                var colCells = colHeader.querySelectorAll("td, th");
+                // col is 1-based in the grid (col 0 is row header), header cells are 0-indexed
+                if (colCells[col - 1]) {
+                    colCells[col - 1].classList.add("jg-active");
+                }
+            }
+
+            // Highlight row header
+            var rowHeader = sheet.querySelector("table.jg-header.jg-row");
+            if (rowHeader) {
+                forEach.call(rowHeader.querySelectorAll("td.jg-active, th.jg-active"), function (el) {
+                    el.classList.remove("jg-active");
+                });
+                var rowRows = rowHeader.querySelectorAll("tr");
+                // row is 1-based in the grid, row header rows are 0-indexed (first row is "◢")
+                if (rowRows[row]) {
+                    var cell = rowRows[row].querySelector("td, th");
+                    if (cell) cell.classList.add("jg-active");
+                }
+            }
+        });
     }
 
     exports.render = function (dom) {

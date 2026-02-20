@@ -8,7 +8,7 @@
 }
 
 .jagrid .jg-header {
-  background-color: #d4d0c7;
+  background-color: #f6f6f6;
   box-shadow: none;
 }
 
@@ -20,9 +20,9 @@
 
 .jagrid .jg-header td, .jagrid .jg-header th {
   text-align: center;
-  color: #000;
+  color: #333;
   font-size: 90%;
-  box-shadow: inset #b1b5ba -1px -1px 0;
+  box-shadow: inset #d4d4d4 -1px -1px 0;
 }
 
 .jagrid * {
@@ -37,12 +37,12 @@
 
 .jagrid button {
   color: #444;
-  background-color: #f0f0f0;
+  background-color: #f3f3f3;
 }
 
 .jagrid button.primary {
   color: #fff;
-  background-color: #2b5797;
+  background-color: #217346;
 }
 
 .jagrid input {
@@ -53,14 +53,14 @@
 
 .jagrid .jg-cell-cursor {
   position: absolute;
-  border: 2px solid #1a73e8;
+  border: 2px solid #217346;
   pointer-events: none;
   z-index: 10;
   box-sizing: border-box;
 }
 
 .jagrid .jg-header td.jg-active, .jagrid .jg-header th.jg-active {
-  background-color: #c5d9f1;
+  background-color: #e2efdb;
   font-weight: bold;
 }
 

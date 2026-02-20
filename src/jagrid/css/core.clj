@@ -5,14 +5,21 @@
 
 (def cell-size (or (env :cell-size) 20))
 
-(defn base-css [& {:keys [header-bgcolor header-textcolor
-                          btn-color btn-primary-color btn-bgcolor btn-primary-bgcolor]
+(defn base-css [& {:keys [header-bgcolor header-textcolor header-border-color
+                          btn-color btn-primary-color btn-bgcolor btn-primary-bgcolor
+                          cursor-color header-active-bgcolor header-active-textcolor
+                          header-active-style]
                    :or {header-bgcolor "#dae7f5"
                         header-textcolor "#47385a"
+                        header-border-color "#b1b5ba"
                         btn-bgcolor "#f0f0f0"
                         btn-color "#444"
                         btn-primary-bgcolor "#2b5797"
-                        btn-primary-color "#fff"}}]
+                        btn-primary-color "#fff"
+                        cursor-color "#1a73e8"
+                        header-active-bgcolor "#c5d9f1"
+                        header-active-textcolor nil
+                        header-active-style :fill}}]
   [:.jagrid
    {:border-width (px 0)
     :line-height (px cell-size)
@@ -31,7 +38,7 @@
      {:text-align "center"
       :color header-textcolor
       :font-size "90%"
-      :box-shadow "inset #b1b5ba -1px -1px 0"}]]
+      :box-shadow (str "inset " header-border-color " -1px -1px 0")}]]
    [:*
     {:margin 0
      :padding 0
@@ -49,6 +56,29 @@
     {:border {:size 0}
      :width "100%"
      :height (px (- cell-size 1))}]
+   [:.jg-cell-cursor
+    {:position "absolute"
+     :border (str "2px solid " cursor-color)
+     :pointer-events "none"
+     :z-index 10
+     :box-sizing "border-box"}]
+   (if (= header-active-style :border)
+     ;; Office 365 style: bottom/right border line on active headers
+     [[:.jg-header.column
+       [:td.jg-active :th.jg-active
+        {:background-color header-active-bgcolor
+         :box-shadow (str "inset 0 -2px 0 " cursor-color ", inset " header-border-color " -1px -1px 0")}]]
+      [:.jg-header.jg-row
+       [:td.jg-active :th.jg-active
+        {:background-color header-active-bgcolor
+         :box-shadow (str "inset -2px 0 0 " cursor-color ", inset " header-border-color " -1px -1px 0")}]]]
+     ;; Classic style: fill background
+     [:.jg-header
+      [:td.jg-active :th.jg-active
+       (merge {:background-color header-active-bgcolor
+               :font-weight "bold"}
+              (when header-active-textcolor
+                {:color header-active-textcolor}))]])
    [:table
     {:box-shadow "#000 -1px -1px 0px"
      :border-collapse "collapse"
@@ -87,4 +117,14 @@
   {:output-to "css/jagrid-excel2000.css"}
   (base-css :header-bgcolor "#d4d0c7"
             :header-textcolor "#000"))
+
+(defstylesheet theme-office365
+  {:output-to "css/jagrid-office365.css"}
+  (base-css :header-bgcolor "#f6f6f6"
+            :header-textcolor "#333"
+            :header-border-color "#d4d4d4"
+            :btn-bgcolor "#f3f3f3"
+            :btn-primary-bgcolor "#217346"
+            :cursor-color "#217346"
+            :header-active-bgcolor "#e2efdb"))
 
