@@ -1,0 +1,26 @@
+body {
+    padding-top: 70px;
+}
+.jagrid {
+    color: #000;
+}
+.vertical {
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    -webkit-text-orientation:upright;
+    height: 100%;
+}
+.title {
+    background-position: 3px 3px;
+    background-color: lightgreen;
+}
+.title-all {
+    background-color: darkgreen;
+    color: #fff;
+    text-align: center;
+}
+#container {
+    position:absolute;
+    margin-left: 20px;
+}

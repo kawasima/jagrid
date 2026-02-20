@@ -1,0 +1,100 @@
+.jagrid {
+  border-width: 0px;
+  line-height: 20px;
+  position: relative;
+  border-style: solid;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.jagrid .jg-header {
+  background-color: #d4d0c7;
+  box-shadow: none;
+}
+
+.jagrid .jg-header.jg-row {
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.jagrid .jg-header td, .jagrid .jg-header th {
+  text-align: center;
+  color: #000;
+  font-size: 90%;
+  box-shadow: inset #b1b5ba -1px -1px 0;
+}
+
+.jagrid * {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.jagrid ul, .jagrid ol {
+  padding-left: 20px;
+}
+
+.jagrid button {
+  color: #444;
+  background-color: #f0f0f0;
+}
+
+.jagrid button.primary {
+  color: #fff;
+  background-color: #2b5797;
+}
+
+.jagrid input {
+  border-size: 0;
+  width: 100%;
+  height: 19px;
+}
+
+.jagrid .jg-cell-cursor {
+  position: absolute;
+  border: 2px solid #1a73e8;
+  pointer-events: none;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.jagrid .jg-header td.jg-active, .jagrid .jg-header th.jg-active {
+  background-color: #c5d9f1;
+  font-weight: bold;
+}
+
+.jagrid table {
+  box-shadow: #000 -1px -1px 0px;
+  border-collapse: collapse;
+  border-color: inherit;
+  border-spacing: 0;
+}
+
+.jagrid table tr {
+  line-height: 20px;
+}
+
+.jagrid table tr:first-child td {
+  height: 0;
+  border: 0;
+}
+
+.jagrid table td, .jagrid table th {
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+  vertical-align: top;
+  box-shadow: inset #000 -1px -1px 0;
+}
+
+.jagrid table td > div, .jagrid table th > div {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset #000 -1px -1px 0;
+}
