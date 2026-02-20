@@ -8,7 +8,7 @@
 }
 
 .jagrid .jg-header {
-  background-color: #e6e6e6;
+  background-color: #f6f6f6;
   box-shadow: none;
 }
 
@@ -22,7 +22,7 @@
   text-align: center;
   color: #333;
   font-size: 90%;
-  box-shadow: inset #b1b5ba -1px -1px 0;
+  box-shadow: inset #d4d4d4 -1px -1px 0;
 }
 
 .jagrid * {
@@ -60,9 +60,8 @@
 }
 
 .jagrid .jg-header td.jg-active, .jagrid .jg-header th.jg-active {
-  background-color: #217346;
+  background-color: #e2efdb;
   font-weight: bold;
-  color: #fff;
 }
 
 .jagrid table {
